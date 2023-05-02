@@ -266,5 +266,15 @@ puts "Top Cast"
 puts "========"
 puts ""
 
+all_roles = Role.all
+for characters in all_roles
+    movie = characters["movie_id"]
+    movie_name = Movie.find_by({"id" => characters["movie_id"] })["title"]
+    actor = characters["actor_id"]
+    actor_name = Actor.find_by({"id" => characters["actor_id"]})["actor_name"]
+    role = characters["character_name"]
+    puts "#{movie_name} #{actor_name} #{role}"
+end
+
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
